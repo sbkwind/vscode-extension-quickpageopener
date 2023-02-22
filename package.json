@@ -10,16 +10,34 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:quick-page-opener.helloWorld"
+    "onStartupFinished"
   ],
-  "main": "./extension.js",
+  "main": "./src/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "openpage",
-        "title": "open page by bundle name"
+        "command": "quickpageopener.openpage",
+        "title": "open page by bundle name",
+        "category": "openpage"
       }
-    ]
+    ],
+    "keybindings": [
+      {
+        "command": "quickpageopener.openpage",
+        "key": "Ctrl+Shift+i",
+        "mac": "Cmd+Shift+i"
+      }
+    ],
+    "configuration": {
+      "title": "QuickPageOpener",
+      "properties": {
+        "quickpageopener.projectPath": {
+          "type": "string",
+          "description": "项目路径",
+          "default": "/"
+        }
+      }
+    }
   },
   "scripts": {
     "lint": "eslint .",
@@ -31,10 +49,14 @@
     "@types/glob": "^8.0.1",
     "@types/mocha": "^10.0.1",
     "@types/node": "16.x",
+    "@vscode/test-electron": "^2.2.2",
     "eslint": "^8.33.0",
     "glob": "^8.1.0",
     "mocha": "^10.1.0",
-    "typescript": "^4.9.4",
-    "@vscode/test-electron": "^2.2.2"
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "@babel/parser": "^7.20.15",
+    "@babel/traverse": "^7.20.13"
   }
 }
