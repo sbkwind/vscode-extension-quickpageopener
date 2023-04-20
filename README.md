@@ -1,8 +1,8 @@
-# quick-page-opener README
+# `quick-page-opener`
 
 ## 是什么
 
-一个快速打开文件的 vscode 插件。
+一个快速打开文件的 `vscode` 插件。
 
 ## 为什么
 
